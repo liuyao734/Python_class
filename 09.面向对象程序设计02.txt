@@ -1,0 +1,112 @@
+# 面向对象程序设计
+    # 概念：
+        # 对象（Object）：可描述事务
+        # 类（Class）：面向对象实现手段
+        # 抽象（Abstract）
+        # 封装（Encapsulation）：重要特征之一
+        # 继承（Inheritance）：重要特征之一
+        # 多态（Polymorphism）：重要特征之一
+
+    #类的创建
+        #请创建一个电脑类
+        # class Computer:
+        #     # 类的属性，定义该类是怎样的，赋值语句实现
+        #     screen = True
+        #     # 实例方法的创建,该类可以做什么？ def 方法名(self):
+        #     def start(self):
+        #         print('电脑正在开机中……')
+
+    # 类的调用
+        # 类的实例化 实例名 =  类名()
+        # my_computer = Computer()
+        # print(my_computer.screen)
+        # my_computer.start()
+
+    # 总结
+        # 创建：
+            # 类的创建：class语句
+            # 类的属性创建：赋值语句
+            # 实例方法的创建：def 方法名(self):
+        # 调用
+            # 类的实例化：实例名 =  类名()
+            # 调用类的属性：实例名.属性
+            # 调用类的方法：实例名.方法()
+
+    # 类的两个关键点：
+        # 特殊参数self
+            # 所有实例的替身，代表实例本身，方便数据流转
+                # 只要在类中用def语句创建语法时，就必须把第一个参数位置留给self，调用方法时忽略
+                # 当在类的方法内部想要调用类属性或其他方法时，就要采用self.属性名或self.方法名的格式
+        # 初始化方法 def __init__(self):
+            # 作用：实例对象创建后，该方法内部代码无需调用就会自动运行。
+
+# 实例 电子宠物V1.0
+# 任务1：设计电子狗宠物，名字、性别、能量、体重等属性。吃饭、运动、显示状态动作
+class Dog:
+    def __init__(self,name,gender,energy,weight):
+        self.name = name
+        self.gender = gender
+        self.energy = energy
+        self.weight = weight
+        print(f'你好，我的名字是{self.name}，我是{self.gender}，很高兴成为你的电子宠物')
+        
+    def sit(self):
+        print(self.name+'正在蹲下')
+    def roll_over(self):
+        print(self.name+'正在打滚')
+
+# 任务2：让电子宠物吃东西？？？(食物为汉堡包，能量增加10，体重增加5；其余则只增加能量2)
+    def eat(self,food):
+        if food == 'hamberger':
+            self.energy += 10
+            self.weight +=5
+            print('汉堡包真好吃，但是别给我喂太多')
+        else:
+            self.energy += 2
+            print('好美味！')
+
+# 任务3：让电子宠物显示状态
+    def display(self):
+        print(f'我当前的能量是{self.energy}，体重是{self.weight}')
+        if self.energy<50:
+            print('快补充能量！')
+        elif self.weight>50:
+            print('超重啦，快带我做运动吧！')
+        else:
+            print('我很健康！')
+
+# 任务4：让宠物运动（运动时间大于10分钟，能量-20，体重-10,大于5分钟，能量-10，体重-5,其他能量-5，体重-2）
+
+
+
+# 
+
+# 调用类
+# my_dog = Dog('卡尔','男孩',70,10)
+# # my_dog.sit()
+# # my_dog.roll_over()
+# # my_dog.eat('apple')
+# my_dog.display()
+# my_dog.eat('hamberger')
+# my_dog.display()
+
+# 实操题
+    # 设计一个Circle（圆）类，该类中包括属性radius（半径），还包括__init__()、get_perimeter()（求周长）
+    # 和get_area()（求面积）等方法。设计完成后，创建Circle类的对象并测试求周长和面积的功能。
+    
+# class Circle:
+#     def __init__(self,radius):
+#         self.radius=radius
+
+#     def get_perimeter(self):
+#         return 2*3.14*self.radius
+
+#     def get_area(self):
+#         return 3.14*self.radius**2
+# n = eval(input('请输入半径：'))
+# my_circle=Circle(n)
+# print(f'圆的周长是：{my_circle.get_perimeter()}')
+# print(f'圆的面积是：{my_circle.get_area()}')
+
+
+# 电子宠物V2.0 新的电子宠物不仅可以吃饭、运动、显示状态，还可以计算
